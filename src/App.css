@@ -5,3 +5,9 @@ body {
 .active {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 767px) {
+  span {
+    display: none;
+  }
+}
