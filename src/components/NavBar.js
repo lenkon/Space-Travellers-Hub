@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import styles from './NavBar.module.css';
+import styles from '../styles/NavBar.module.css';
 
 function NavBar() {
   return (
