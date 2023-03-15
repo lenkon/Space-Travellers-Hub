@@ -1,0 +1,18 @@
+.logo {
+  width: 48px;
+  height: 48px;
+}
+
+.title {
+  margin: 0;
+  padding-left: 24px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.displayFlex {
+  display: flex;
+  gap: 24px;
+}
