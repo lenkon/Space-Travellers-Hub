@@ -9,3 +9,9 @@ body {
 tbody tr td:nth-child(2) {
   width: 60%;
 }
+
+@media screen and (max-width: 767px) {
+  span {
+    display: none;
+  }
+}
