@@ -1,27 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Table from 'react-bootstrap/Table';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMissions, changeStatus } from '../redux/missions/missionSlice';
+import { changeStatus } from '../redux/missions/missionSlice';
 
 function Missions() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    (async () => {
-      const response = await axios('https://api.spacexdata.com/v3/missions');
-      const state = response.data.map((mission) => ({
-        id: mission.mission_id,
-        name: mission.mission_name,
-        description: mission.description,
-        reserved: false,
-      }));
-      dispatch(addMissions(state));
-    })();
-  }, [dispatch]);
-
   const { missions } = useSelector((state) => state.missionsReducer);
-
   return (
     <>
       <Table striped bordered hover responsive>

@@ -8,12 +8,14 @@ import Missions from './routes/Missions';
 import MyProfile from './routes/MyProfile';
 import './App.css';
 import { fetchRockets } from './redux/rockets/rocketSlice';
+import { fetchMissions } from './redux/missions/missionSlice';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchRockets());
+    dispatch(fetchMissions());
   }, [dispatch]);
 
   return (
