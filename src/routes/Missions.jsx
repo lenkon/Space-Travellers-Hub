@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMissions } from '../redux/missions/missionSlice';
+import { addMissions, changeStatus } from '../redux/missions/missionSlice';
 
 function Missions() {
   const dispatch = useDispatch();
@@ -15,7 +15,6 @@ function Missions() {
         name: mission.mission_name,
         description: mission.description,
         reserved: false,
-        status: 'NOT A MEMBER',
       }));
       dispatch(addMissions(state));
     })();
@@ -39,8 +38,8 @@ function Missions() {
             <tr key={mission.id}>
               <td>{mission.name}</td>
               <td>{mission.description}</td>
-              <td>{mission.status}</td>
-              <td><div className="center-align"><button type="button">{!mission.reserved ? 'JOIN MISSION' : 'Leave Mission'}</button></div></td>
+              <td>{!mission.reserved ? 'NOT A MEMBER' : 'Active Member'}</td>
+              <td><div className="center-align"><button type="button" onClick={() => dispatch(changeStatus(mission.id))}>{!mission.reserved ? 'JOIN MISSION' : 'Leave Mission'}</button></div></td>
             </tr>
           ))}
         </tbody>
