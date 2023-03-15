@@ -5,3 +5,7 @@ body {
 .active {
   text-decoration: underline;
 }
+
+tbody tr td:nth-child(2) {
+  width: 60%;
+}
