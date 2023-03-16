@@ -3,15 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   Button, Card, Col,
 } from 'react-bootstrap';
-import { bookRocket } from '../redux/rockets/rocketSlice';
+import { bookRocket, cancelRocket } from '../redux/rockets/rocketSlice';
 import '../styles/Rockets.css';
 
 function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
 
-  const bookHandler = (id) => {
-    dispatch(bookRocket(id));
+  const bookHandler = (id, reserved) => {
+    if (reserved) {
+      return dispatch(cancelRocket(id));
+    }
+    return dispatch(bookRocket(id));
   };
 
   return (
@@ -21,6 +24,8 @@ function Rockets() {
         name,
         type,
         flickrImages,
+        description,
+        reserved,
       }) => (
         <Card key={id}>
           <Col md={3} xs={12}>
@@ -32,7 +37,15 @@ function Rockets() {
               <Card.Text>
                 {type}
               </Card.Text>
-              <Button variant="primary" onClick={() => bookHandler(id)}>Reserve Rocket</Button>
+              <Card.Text>
+                {description}
+              </Card.Text>
+              <Button
+                variant={reserved ? 'outline-secondary' : 'primary'}
+                onClick={() => bookHandler(id, reserved)}
+              >
+                { reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+              </Button>
             </Card.Body>
           </Col>
         </Card>
