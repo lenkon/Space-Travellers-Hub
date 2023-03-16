@@ -19,7 +19,7 @@ function Rockets() {
       {rockets.map(({
         id,
         name,
-        description,
+        type,
         flickrImages,
       }) => (
         <Card key={id}>
@@ -30,7 +30,7 @@ function Rockets() {
             <Card.Body>
               <Card.Title>{name}</Card.Title>
               <Card.Text>
-                {description}
+                {type}
               </Card.Text>
               <Button variant="primary" onClick={() => bookHandler(id)}>Reserve Rocket</Button>
             </Card.Body>
