@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const FETCH_ROCKETS = 'spaceTraveller/Fetch_Rockets';
-const BOOK_ROCKETS = 'spaceTraveller/Book_Rockets';
+const FETCH_ROCKETS = 'spaceTraveller/fetchRockets';
+const BOOK_ROCKETS = 'spaceTraveller/bookRocket';
+const CANCEL_ROCKETS = 'spaceTraveller/cancelRocket';
 
 export const fetchRockets = createAsyncThunk(FETCH_ROCKETS, async () => fetch('https://api.spacexdata.com/v4/rockets')
   .then((response) => response.json())
@@ -10,6 +11,7 @@ export const fetchRockets = createAsyncThunk(FETCH_ROCKETS, async () => fetch('h
       id: rocket.id,
       name: rocket.name,
       type: rocket.type,
+      description: rocket.description,
       flickrImages: rocket.flickr_images[1],
     }));
 
@@ -20,8 +22,8 @@ export const fetchRockets = createAsyncThunk(FETCH_ROCKETS, async () => fetch('h
   }));
 
 const rocketSlice = createSlice({
-  name: 'rockets',
-  initialState: { rockets: [], isloading: false, refresh: true },
+  name: 'spaceTraveller',
+  initialState: { rockets: [], loading: false, refresh: true },
   reducers: {
     bookRocket: (state, action) => {
       const rockets = state.rockets.map((rocket) => {
@@ -30,21 +32,34 @@ const rocketSlice = createSlice({
       });
       return { ...state, rockets };
     },
+
+    cancelRocket: (state, action) => {
+      const rockets = state.rockets.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: false };
+      });
+      return { ...state, rockets };
+    },
   },
 
   extraReducers: {
-    [fetchRockets.pending]: (state) => ({ ...state, isloading: true }),
+    [fetchRockets.pending]: (state) => ({ ...state, loading: true }),
     [fetchRockets.fulfilled]: (state, action) => ({
       ...state,
       rockets: action.payload,
-      isloading: false,
+      loading: false,
     }),
-    [fetchRockets.rejected]: (state) => ({ ...state, isloading: false }),
+    [fetchRockets.rejected]: (state) => ({ ...state, loading: false }),
   },
 });
 
 export const bookRocket = (id) => ({
   type: BOOK_ROCKETS,
+  payload: id,
+});
+
+export const cancelRocket = (id) => ({
+  type: CANCEL_ROCKETS,
   payload: id,
 });
 
