@@ -10,6 +10,10 @@ tbody tr td:nth-child(2) {
   width: 60%;
 }
 
+.mr-y {
+  margin-top: 2rem;
+}
+
 @media screen and (max-width: 767px) {
   span {
     display: none;

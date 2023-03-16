@@ -8,7 +8,7 @@ import styles from '../styles/NavBar.module.css';
 
 function NavBar() {
   return (
-    <Navbar expand="md">
+    <Navbar expand="md" bg="light">
       <Container fluid>
         <NavLink to="/">
           <img className={styles.logo} src={logo} alt="logo" />
