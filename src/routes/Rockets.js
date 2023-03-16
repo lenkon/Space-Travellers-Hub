@@ -1,19 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Button, Card, Col,
 } from 'react-bootstrap';
+import { bookRocket } from '../redux/rockets/rocketSlice';
 import '../styles/Rockets.css';
 
 function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
+  const dispatch = useDispatch();
+
+  const bookHandler = (id) => {
+    dispatch(bookRocket(id));
+  };
 
   return (
     <div className="card-list">
       {rockets.map(({
         id,
         name,
-        description,
+        type,
         flickrImages,
       }) => (
         <Card key={id}>
@@ -24,9 +30,9 @@ function Rockets() {
             <Card.Body>
               <Card.Title>{name}</Card.Title>
               <Card.Text>
-                {description}
+                {type}
               </Card.Text>
-              <Button variant="primary">Reserve Rocket</Button>
+              <Button variant="primary" onClick={() => bookHandler(id)}>Reserve Rocket</Button>
             </Card.Body>
           </Col>
         </Card>
