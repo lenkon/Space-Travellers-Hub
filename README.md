@@ -31,7 +31,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [Js capstone (website movies) ] <a name="about-project"></a>
+# 📖 [Space Travellers Hub ] <a name="about-project"></a>
 **[Space Traveller's Hub ]** is web application that shows the different list of missions that a traveller would like to embark on. The user chooses his preferred mission and also his preferred rocket for trandportation. This is a group project and it involves so many awesome features that you get to know more aout a you navigate through this readme file"
 
 ## 🛠 Built With <a name="built-with"></a>
