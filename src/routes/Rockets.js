@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  Button, Card, Col,
+  Button, Card, Col, Badge,
 } from 'react-bootstrap';
 import { bookRocket, cancelRocket } from '../redux/rockets/rocketSlice';
 import '../styles/Rockets.css';
@@ -38,6 +38,9 @@ function Rockets() {
                 {type}
               </Card.Text>
               <Card.Text>
+                {reserved && (
+                  <Badge bg="info">Reserved</Badge>
+                )}
                 {description}
               </Card.Text>
               <Button
