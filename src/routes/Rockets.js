@@ -6,7 +6,7 @@ import {
 import { bookRocket, cancelRocket } from '../redux/rockets/rocketSlice';
 import '../styles/Rockets.css';
 
-function Rockets() {
+const Rockets = () => {
   const { rockets } = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ function Rockets() {
             <Card.Img src={flickrImages} />
           </Col>
           <Col md={9} xs={12}>
-            <Card.Body>
+            <Card.Body style={{ padding: '16px' }} className="rocket-container">
               <Card.Title>{name}</Card.Title>
               <Card.Text>
                 {type}
@@ -55,6 +55,6 @@ function Rockets() {
       ))}
     </div>
   );
-}
+};
 
 export default Rockets;

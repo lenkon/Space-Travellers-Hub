@@ -14,6 +14,10 @@ tbody tr td:nth-child(2) {
   margin-top: 2rem;
 }
 
+.card-body {
+  padding: 0;
+}
+
 @media screen and (max-width: 767px) {
   span {
     display: none;
