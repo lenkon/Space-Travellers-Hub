@@ -16,11 +16,8 @@ function Missions() {
             <th>Mission</th>
             <th>Description</th>
             <th>Status</th>
-            <th>g</th>
           </tr>
         </thead>
-
-        {/*  bg={variant.toLowerCase()} */}
         <tbody>
           {missions.map((mission) => (
             <tr key={mission.id}>
