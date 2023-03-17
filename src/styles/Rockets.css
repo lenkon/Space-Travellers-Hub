@@ -1,0 +1,30 @@
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-around;
+}
+
+.card-list:last-child {
+  padding-bottom: 48px;
+}
+
+.card {
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card-img {
+  height: 100%;
+  border-style: none;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.badge {
+  margin-right: 12px;
+}
+
+.rocket-container {
+  padding: 16px;
+}
