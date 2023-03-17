@@ -53,9 +53,9 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **[Add likes to the movie ]**
-- **[Add comment to the movie]**
-- **[Update the involvement API based on the action of the user ]**
+- **[Book rockets and cancel rockets ]**
+- **[Join missions and leave missions]**
+- **[Display reserved rockets and joined missions]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,9 +128,11 @@ You can deploy this project using:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author1**
+👤 **lenkon**
 
-👤 **Author2**
+- GitHub: [@lenkon](https://github.com/lenkon)
+
+👤 **AyoMoses**
 
 - GitHub: [@AyoMoses1](https://github.com/AyoMoses1)
 - Twitter: [@Ayo_Moses1](https://twitter.com/Ayo_Moses1)
